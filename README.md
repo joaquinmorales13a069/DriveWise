@@ -1,8 +1,12 @@
-# React + Vite
+# DriveWise Rentals React Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the final assessment project for class SDM404 - Software Development Management.
 
-Currently, two official plugins are available:
+To install all dependencies please run the following commands in terminal:
+- npm install
+- npm run dev
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Technologies used on this project:
+- React JS
+- Tailwind css
+- Supabase (as Baas - Backend as a service)
