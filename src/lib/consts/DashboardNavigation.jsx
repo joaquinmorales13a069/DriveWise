@@ -2,20 +2,20 @@ import { FaHome, FaUser, FaCarSide, FaBookOpen, FaSignOutAlt } from "react-icons
 export const DASHBOARD_SIDEBAR = [
   {
     key: 'home',
-    label: 'home',
+    label: 'Home',
     path: '/',
-    icon: '<FaHome />'
+    icon: <FaHome />
   },
   {
     key: 'users',
     label: 'Users',
-    path: '/users',
-    icon: '<FaUser />'
+    path: 'users',
+    icon: <FaUser />
   },
   {
     key: 'cars',
     label: 'Cars',
-    path: '/cars',
+    path: 'cars',
     icon: <FaCarSide />
   },
   {
@@ -30,6 +30,6 @@ export const DASHBOARD_SIDEBAR_BOTTOM_LINKS = [
   {
     key: 'logout',
     label: 'Log Out',
-    icon: '<FaSignOutAlt />'
+    icon: <FaSignOutAlt />
   }
 ]
