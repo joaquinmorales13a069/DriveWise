@@ -55,6 +55,8 @@ export default function Navbar() {
         </div>
         {/* Login Button */}
         <div>
+        <a
+            href={"/login"} >
           <button
             className={
               "px-4 p-2 border-[#047627] rounded-md text-[#047627] hover:text-white bg-white hover:bg-[#047627] shadow-md"
@@ -62,6 +64,7 @@ export default function Navbar() {
           >
             Log in
           </button>
+          </a>
         </div>
         {/* Sandwich button for small screens */}
         <button

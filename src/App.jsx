@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import AddCarForm from "./pages/AddCarForm";
 import NotFound from "./pages/NotFound";
 import DashboardAdmin from "./pages/DashboardAdmin";
 import CarsTable from "./components/AdminDashboard/CarsTable";
@@ -16,6 +17,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/login" element={<Login />}/>
+        <Route path="/addcar" element={<AddCarForm />}/>
         <Route path="*" element={<NotFound />}/>
         <Route path="/admin-dashboard" element={<DashboardAdmin />}>
           <Route path="cars" element={<CarsTable />}/>

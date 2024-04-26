@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 import React, { useState } from "react";
 import carsData from "@/pages/data.js";
 import Navbar from "@/components/Navbar";
+=======
+import Navbar from '../components/Navbar'; // Update the path as necessary to correctly point to your Navbar file
+>>>>>>> 1a5455aced7182445ef14717f4f43128b5e1eb72
 
 export default function Home() {
   const [cars, setCars] = useState(carsData);
@@ -15,6 +19,7 @@ export default function Home() {
   };
 
   return (
+<<<<<<< HEAD
     <section>
       <Navbar />
       <div className="bg-gray-100 min-h-screen">
@@ -90,5 +95,12 @@ export default function Home() {
       </footer>
     </div>
     </section>
+=======
+    <div>
+      <Navbar />
+      {/* Any additional content for the Home page can go here */}
+      Home
+    </div>
+>>>>>>> 1a5455aced7182445ef14717f4f43128b5e1eb72
   )
 }
