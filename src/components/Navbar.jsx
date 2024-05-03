@@ -8,8 +8,6 @@ export default function Navbar() {
     setIsMenuOpen(!isMenuOpen);
   };
 
-
-
   return (
     <header className={"w-full"}>
       <nav className={"flex items-center justify-between"}>
@@ -37,7 +35,7 @@ export default function Navbar() {
             Catalog
           </a>
           <a
-            href={"/"}
+            href={"/about-us"}
             className={
               "block text-[#047627] hover:text-[#E9DD2B] py-2 px-4 no-underline"
             }
@@ -55,15 +53,14 @@ export default function Navbar() {
         </div>
         {/* Login Button */}
         <div>
-        <a
-            href={"/login"} >
-          <button
-            className={
-              "px-4 p-2 border-[#047627] rounded-md text-[#047627] hover:text-white bg-white hover:bg-[#047627] shadow-md"
-            }
-          >
-            Log in
-          </button>
+          <a href={"/login"}>
+            <button
+              className={
+                "px-4 p-2 border-[#047627] rounded-md text-[#047627] hover:text-white bg-white hover:bg-[#047627] shadow-md"
+              }
+            >
+              Log in
+            </button>
           </a>
         </div>
         {/* Sandwich button for small screens */}
@@ -75,47 +72,24 @@ export default function Navbar() {
         >
           <IoMdMenu />
         </button>
-
-        
-        
       </nav>
       {/* Navbar content for small devices */}
       {isMenuOpen && (
-          <div className={"mt-4 text-white bg-[#047627] rounded-md"}>
-            <a
-              href={"/"}
-              className={
-                "block py-2 px-4 no-underline text-white"
-              }
-            >
-              Home
-            </a>
-            <a
-              href={"/"}
-              className={
-                "block py-2 px-4 no-underline text-white"
-              }
-            >
-              Catalog
-            </a>
-            <a
-              href={"/"}
-              className={
-                "block py-2 px-4 no-underline text-white"
-              }
-            >
-              About Us
-            </a>
-            <a
-              href={"/"}
-              className={
-                "block py-2 px-4 no-underline text-white"
-              }
-            >
-              Contact Us
-            </a>
-          </div>
-        )}
+        <div className={"mt-4 text-white bg-[#047627] rounded-md"}>
+          <a href={"/"} className={"block py-2 px-4 no-underline text-white"}>
+            Home
+          </a>
+          <a href={"/"} className={"block py-2 px-4 no-underline text-white"}>
+            Catalog
+          </a>
+          <a href={"/about-us"} className={"block py-2 px-4 no-underline text-white"}>
+            About Us
+          </a>
+          <a href={"/"} className={"block py-2 px-4 no-underline text-white"}>
+            Contact Us
+          </a>
+        </div>
+      )}
     </header>
   );
 }

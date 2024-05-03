@@ -5,29 +5,26 @@ import AddCarForm from "./pages/AddCarForm";
 import NotFound from "./pages/NotFound";
 import { useEffect } from "react";
 import { supabase } from "./supabase/Client";
+import AboutUs from "./pages/AboutUs";
 
 export default function App() {
-
   useEffect(() => {
     supabase.auth.onAuthStateChange((event, session) => {
-      console.log(event, session)
-    })
-  
-    return () => {
-      
-    }
-  }, [])
-  
+      console.log(event, session);
+    });
 
+    return () => {};
+  }, []);
 
   return (
     <main>
       <Routes>
-        <Route path="/" element={<Home />}/>
-        <Route path="/login" element={<Login />}/>
-        <Route path="/addcar" element={<AddCarForm />}/>
-        <Route path="*" element={<NotFound />}/>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/addcar" element={<AddCarForm />} />
+        <Route path="/about-us" element={<AboutUs />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </main>
-  )
+  );
 }
