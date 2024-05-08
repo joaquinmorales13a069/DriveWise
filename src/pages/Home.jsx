@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from "react";
 import carsData from "@/pages/data.js";
 import Navbar from "@/components/Navbar";
@@ -7,22 +8,15 @@ import {
   PayPalButtons,
   usePayPalScriptReducer,
 } from "@paypal/react-paypal-js";
+=======
+import Navbar from '../components/Navbar'; // Update the path as necessary to correctly point to your Navbar file
+>>>>>>> 87ab10ef84b4941324ffaf0246e56b3d3d57c028
 
 export default function Home() {
-  const [cars, setCars] = useState(carsData);
-
-  // Function to filter cars based on selected options
-  const filterCars = (option, value) => {
-    let filteredCars = carsData;
-    if (value !== "All") {
-      filteredCars = carsData.filter((car) => car[option] === value);
-    }
-    setCars(filteredCars);
-  };
-
   return (
     <div>
       <Navbar />
+<<<<<<< HEAD
       <div className="mx-auto my-10">Home</div>
       {/* Any additional content for the Home page can go here */}
         <div className="bg-gray-100 min-h-screen">
@@ -115,6 +109,12 @@ export default function Home() {
       </div>
     </div>
   );
+=======
+      {/* Any additional content for the Home page can go here */}
+      Home
+    </div>
+  )
+>>>>>>> 87ab10ef84b4941324ffaf0246e56b3d3d57c028
 }
 
 const style = { layout: "vertical" };
