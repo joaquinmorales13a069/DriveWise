@@ -16,7 +16,7 @@ export default function Dashboard() {
     });
 
     // Check the initial session
-    const session = supabase.auth.session();
+    const session = supabase.auth.session;
     if (session) {
       checkUserRole(session.user.id);
     } else {
