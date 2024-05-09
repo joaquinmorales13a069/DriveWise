@@ -1,6 +1,7 @@
+
 // src/components/UserInfo.jsx
-import React, { useState } from 'react';
-import Navbar from '../components/Navbar'; 
+import React, { useState } from 'react'; 
+
 function UserInfo({ initialData }) {
   const [userInfo, setUserInfo] = useState(initialData);
   const [isEditing, setIsEditing] = useState(false);
@@ -19,7 +20,6 @@ function UserInfo({ initialData }) {
 
   return (
     <div style={{ marginLeft: "220px", padding: "20px" }}>
-        <Navbar/>
         <h1>User Info</h1>
       {isEditing ? (
         <div>

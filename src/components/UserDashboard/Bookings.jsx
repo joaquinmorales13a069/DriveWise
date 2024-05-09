@@ -1,6 +1,6 @@
 // src/components/Bookings.jsx
 import React, { useState, useEffect } from 'react';
-import Navbar from '../components/Navbar'; 
+ 
 function Bookings() {
   const [bookings, setBookings] = useState([]);
 
@@ -16,7 +16,6 @@ function Bookings() {
   return (
     
     <div style={{ marginLeft: "220px", padding: "20px" }}>
-        <Navbar/>
         <h1> Booking Details</h1>
       <table>
         <thead>

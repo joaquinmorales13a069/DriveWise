@@ -1,32 +1,34 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '@/supabase/Client';
 import SideBar from "@/components/AdminDashboard/SideBar.jsx";
 
 export default function Dashboard() {
   const navigate = useNavigate();
+  const [session, setSession] = useState(null)
 
+// USE EFFECT FOR RETRIEVING USER INFORMATION AND SESSION IF ANY
   useEffect(() => {
-    const { data: authListener } = supabase.auth.onAuthStateChange((event, session) => {
-      if (event === 'SIGNED_IN' && session) {
-        checkUserRole(session.user.id);
-      } else if (event === 'SIGNED_OUT') {
-        navigate('/login');
-      }
-    });
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session)
+    })
 
-    // Check the initial session
-    const session = supabase.auth.session;
-    if (session) {
-      checkUserRole(session.user.id);
-    } else {
-      navigate('/login');
-    }
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session)
+    })
 
-    return () => {
-      authListener.unsubscribe();
-    };
-  }, []);
+    return () => subscription.unsubscribe()
+  }, [])
+
+  if (!session) {
+    navigate('/login')
+  }
+  else {
+    checkUserRole(session.user.id);
+  }
+
 
   async function checkUserRole(user_id) {
     const { data: roles, error } = await supabase
@@ -45,11 +47,15 @@ export default function Dashboard() {
       navigate('/admin-dashboard');
     } else if (roles.role_name === 'user') {
       navigate('/user-dashboard');
+    } else {
+      // Fallback to login if no appropriate role is found
+      navigate('/login');
     }
   }
 
   return (
     <section className={'flex bg-neutral-100 h-screen w-screen'}>
+      <SideBar />
       <div className="p-8 w-full">
         {/* The content that gets rendered will depend on the route */}
       </div>

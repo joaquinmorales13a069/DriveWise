@@ -1,5 +1,5 @@
 import { useState } from "react";
-import DriveWise from "../assets/DriveWise_logo.png";
+import DriveWise from "../../assets/DriveWise_logo.png";
 import { IoMdMenu } from "react-icons/io";
 
 export default function Sidebar() {
