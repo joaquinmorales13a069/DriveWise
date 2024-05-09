@@ -50,7 +50,6 @@ export default function Dashboard() {
 
   return (
     <section className={'flex bg-neutral-100 h-screen w-screen'}>
-      <SideBar />
       <div className="p-8 w-full">
         {/* The content that gets rendered will depend on the route */}
       </div>

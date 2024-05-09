@@ -5,14 +5,13 @@ import AddCarForm from "./pages/AddCarForm";
 import NotFound from "./pages/NotFound";
 import { useEffect } from "react";
 import { supabase } from "./supabase/Client";
-import Dashboard from './components/Dashboard';
+import Dashboard from './pages/Dashboard.jsx';
 import UserInfo from './components/UserInfo';
 import Bookings from './components/Bookings';
 
 import DashboardAdmin from "./pages/DashboardAdmin";
 import CarsTable from "./components/AdminDashboard/CarsTable";
 import UserTable from "./components/AdminDashboard/UserTable";
-import Dashboard from "./pages/Dashboard";
 import DashboardUser from "./pages/DashboardUser";
 
 export default function App() {
@@ -30,7 +29,7 @@ export default function App() {
 
 
   return (
-    <main>
+    <main className="w-full justify-center flex font-roboto">
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/login" element={<Login />}/>

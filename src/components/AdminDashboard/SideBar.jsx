@@ -18,7 +18,6 @@ function SideBar(props) {
               <span className={'text-xl'}>{link.label}</span>
             </Link>
           ))}
-
         </nav>
         <div className={'flex'}>
           {DASHBOARD_SIDEBAR_BOTTOM_LINKS.map((link) => (
