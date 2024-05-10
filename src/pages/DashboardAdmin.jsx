@@ -1,38 +1,41 @@
-
 import { Outlet } from "react-router-dom";
 import SideBar from "@/components/AdminDashboard/SideBar.jsx";
 
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { supabase } from '@/supabase/Client';
-
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { supabase } from "@/supabase/Client";
 
 export default function DashboardAdmin() {
 
-  const navigate = useNavigate();
-  const [session, setSession] = useState(null)
+  const navigate = useNavigate()
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session)
-    })
+    const { data } = supabase.auth.onAuthStateChange((event, session) => {
+      console.log(event, session);
 
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session)
-    })
+      if (event === "INITIAL_SESSION") {
+        // handle initial session
+        if(!session){
+          navigate('/login')
+        }else{
+          console.log('Initial Session detected')
+          checkUserRole(session.user.id);
+        }
+      } else if (event === "SIGNED_IN") {
+        // handle sign in event
+        checkUserRole(session.user.id);
+      } else if (event === "SIGNED_OUT") {
+        // handle sign out event
+        navigate('/')
+      }
+    });
 
-    return () => subscription.unsubscribe()
-  }, [])
-
-  if (!session) {
-    navigate('/login')
-  }
-  else {
-    checkUserRole(session.user.id);
-  }
-
+    // call unsubscribe to remove the callback
+    
+    return () => {
+      data.subscription.unsubscribe();
+    };
+  }, []);
 
   async function checkUserRole(user_id) {
     const { data: roles, error } = await supabase
@@ -41,9 +44,12 @@ export default function DashboardAdmin() {
       .eq('user_id', user_id)
       .single();
 
+    console.log(roles)
+
     if (error || !roles) {
       console.error('Error fetching role or no role found', error);
-      navigate('/login');
+      navigate('/login')
+      
       return;
     }
 
@@ -53,14 +59,20 @@ export default function DashboardAdmin() {
       navigate('/user-dashboard');
     } else {
       // Fallback to login if no appropriate role is found
-      navigate('/login');
+      navigate('/login')
     }
   }
 
+  // handle Log Out button
+
+  async function handleLogOut () {
+    const { error } = await supabase.auth.signOut()
+    navigate('/')
+  }
 
   return (
-    <section className={'flex bg-neutral-100 h-screen w-screen'}>
-      <SideBar />
+    <section className={"flex bg-neutral-100 h-screen w-screen"}>
+      <SideBar logOut={handleLogOut}/>
       <div className="p-8 w-full">
         <Outlet />
       </div>

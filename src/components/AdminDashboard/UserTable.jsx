@@ -172,6 +172,7 @@ export default function UserTable() {
     </>
   );
 }
+// EDIT PROFILE MODAL LOGIC
 
 function EditModal({ user, onClose, onSave }) {
   const [updatedUser, setUpdatedUser] = useState(() => ({

@@ -21,7 +21,7 @@ export const DASHBOARD_SIDEBAR = [
   {
     key: 'bookings',
     label: 'Bookings',
-    path: '/bookings',
+    path: 'bookings',
     icon: <FaBookOpen />
   }
 ]

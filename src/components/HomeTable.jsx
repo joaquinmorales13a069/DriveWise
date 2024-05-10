@@ -148,10 +148,10 @@ export default function HomeTable() {
         </Button>
         <Button className={'text-sm flex gap-2 w-24'} onClick={() => table.nextPage()}>
           <span>
-            <FaArrowCircleRight />
+            Next
           </span>
           <span>
-            Next
+            <FaArrowCircleRight />
           </span>
         </Button>
       </div>

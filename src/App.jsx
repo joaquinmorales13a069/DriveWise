@@ -5,7 +5,7 @@ import AddCarForm from "./pages/AddCarForm";
 import NotFound from "./pages/NotFound";
 import { useEffect } from "react";
 import { supabase } from "./supabase/Client";
-import Dashboard from "./pages/Dashboard.jsx";
+
 
 // import for admin dashboard
 import DashboardAdmin from "./pages/DashboardAdmin";
@@ -16,6 +16,7 @@ import UserTable from "./components/AdminDashboard/UserTable";
 import DashboardUser from "./pages/DashboardUser";
 import UserInfo from "./components/UserDashboard/UserInfo";
 import Bookings from "./components/UserDashboard/Bookings";
+import AboutUs from "./pages/AboutUs";
 
 export default function App() {
   const userData = { name: "John Doe" };
@@ -33,14 +34,13 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/addcar" element={<AddCarForm />} />
+        <Route path="/about-us" element={<AboutUs />} />
         <Route path="*" element={<NotFound />} />
         <Route
           path="/information"
           element={<UserInfo initialData={userData} />}
         />
         <Route path="/bookings" element={<Bookings />} />
-        <Route path="/Dashboard" element={<Dashboard />} />\
-        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/admin-dashboard" element={<DashboardAdmin />}>
           <Route path="cars" element={<CarsTable />} />
           <Route path="users" element={<UserTable />} />

@@ -1,3 +1,4 @@
+import Navbar from "@/components/Navbar";
 import { supabase } from "../supabase/Client";
 import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
@@ -26,12 +27,15 @@ export default function Login() {
   }, [navigate]);
 
   return (
-    <div className="w-100 flex justify-center">
+    <section className="flex flex-col items-center gap-10 container mx-auto px-4 py-8">
+    <Navbar/>
+    <div className="flex-col justify-center w-3/5">
       <Auth
         supabaseClient={supabase}
         appearance={{ theme: ThemeSupa }}
         providers={[]} // Add appropriate social providers if any, e.g., ['google', 'facebook']
       />
     </div>
+    </section>
   );
 }

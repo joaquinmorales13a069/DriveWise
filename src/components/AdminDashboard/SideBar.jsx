@@ -11,9 +11,9 @@ function SideBar(props) {
       </div>
       {/*Top section*/}
       <div className={'flex-1 flex flex-col justify-between'}>
-        <nav className={'flex flex-col pt-3'}>
+        <nav className={'flex flex-col pt-3 gap-5'}>
           {DASHBOARD_SIDEBAR.map((link) => (
-            <Link key={link.key} to={link.path} className={'admin-dashboard-items'}>
+            <Link key={link.key} to={link.path} className={'flex gap-2 items-center'}>
               <span>{link.icon}</span>
               <span className={'text-xl'}>{link.label}</span>
             </Link>
@@ -21,7 +21,7 @@ function SideBar(props) {
         </nav>
         <div className={'flex'}>
           {DASHBOARD_SIDEBAR_BOTTOM_LINKS.map((link) => (
-            <Button key={link.key} className={'gap-2 text-base bg-neutral-700 hover:bg-neutral-500'}>
+            <Button key={link.key} className={'gap-2 text-base bg-neutral-700 hover:bg-neutral-500'} onClick={props.logOut}>
               <span>{link.icon}</span>
               <span>{link.label}</span>
             </Button>

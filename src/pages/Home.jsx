@@ -1,22 +1,20 @@
-import Navbar from "../components/Navbar"; // Update the path as necessary to correctly point to your Navbar file
-import HomeTable from "../components/HomeTable.jsx"
+import Navbar from "../components/Navbar";
+import HomeTable from "../components/HomeTable.jsx";
 import {
   PayPalScriptProvider,
   PayPalButtons,
   usePayPalScriptReducer,
 } from "@paypal/react-paypal-js";
+
 export default function Home() {
   return (
-    <div className={'w-4/5'}>
+    <div className="container mx-auto px-4 py-8"> {/* Adjusted container layout for laptop screens */}
       <Navbar />
       <div className="mx-auto my-10">
         <HomeTable />
       </div>
       {/* Any additional content for the Home page can go here */}
-      <div
-        style={{ maxWidth: "750px", minHeight: "200px" }}
-        className="mx-auto mt-5"
-      >
+      <div className="mx-auto mt-5 max-w-lg"> {/* Adjusted max width for laptop screens */}
         <PayPalScriptProvider
           options={{ clientId: "test", components: "buttons", currency: "USD" }}
         >
@@ -57,6 +55,7 @@ function createOrder() {
       return order.id;
     });
 }
+
 function onApprove(data) {
   // replace this url with your server
   return fetch(

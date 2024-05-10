@@ -2,10 +2,10 @@ import Navbar from "@/components/Navbar"; // Update the path as necessary to cor
 
 export default function AboutUs() {
   return (
-    <>
+    <section className="container mx-auto px-4 py-8 flex flex-col gap-10">
       <Navbar />
       <div className="flex flex-col center gap-5 mt-5 mx-10">
-        <div>
+        <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut porta
           dapibus est, eu placerat risus ultrices et. Fusce volutpat porta
           rutrum. Cras egestas libero vel magna suscipit, et euismod sapien
@@ -25,11 +25,11 @@ export default function AboutUs() {
           pellentesque risus vehicula a. Morbi condimentum laoreet odio, euismod
           pretium orci placerat quis. In augue eros, mollis vitae blandit id,
           imperdiet id tortor.
-        </div>
+        </p>
         <a href="/">
-          <button>Book Now</button>
+          <button className="bg-green-600 p-4 rounded-md" >Book Now</button>
         </a>
       </div>
-    </>
+    </section>
   );
 }

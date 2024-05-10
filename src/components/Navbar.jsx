@@ -2,13 +2,13 @@ import { useState } from "react";
 import DriveWise from "../assets/DriveWise_logo.png";
 import { IoMdMenu } from "react-icons/io";
 
+
 export default function Navbar() {
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-
-
 
   return (
     <header className={"w-full"}>
@@ -29,28 +29,20 @@ export default function Navbar() {
             Home
           </a>
           <a
-            href={"/"}
+            href={"/admin-dashboard"}
             className={
               "block text-[#047627] hover:text-[#E9DD2B] py-2 px-4 no-underline"
             }
           >
-            Catalog
+            Dashboard
           </a>
           <a
-            href={"/"}
+            href={'/about-us'}
             className={
               "block text-[#047627] hover:text-[#E9DD2B] py-2 px-4 no-underline"
             }
           >
             About Us
-          </a>
-          <a
-            href={"/"}
-            className={
-              "block text-[#047627] hover:text-[#E9DD2B] py-2 px-4 no-underline"
-            }
-          >
-            Contact Us
           </a>
         </div>
         {/* Login Button */}
